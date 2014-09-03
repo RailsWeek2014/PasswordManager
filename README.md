@@ -1,6 +1,6 @@
 1. PasswortManager
 	- Passwörter werden mit Login und URl zentral gepseichert
-		-> verschlüsselung ? Ruby oder Javascript
+		-> verschlüsselung 
 	- Suchleiste
 		-> kann nach Loginname und url gesucht werden
 		-> Sortierbar
