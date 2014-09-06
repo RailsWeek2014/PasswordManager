@@ -1,0 +1,3 @@
+<% if user_signed_in? %>
+	<div style="color:red;"><%= link_to "Abmelden", destroy_user_session_url, method: :delete %></div>
+<% end %>
