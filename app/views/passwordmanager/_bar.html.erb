@@ -1,0 +1,19 @@
+<div id="divLeiste">
+	<div id="divLUser">
+		<table border="0" cellspacing="5" cellpadding="0">
+			<tr>
+				<td>Angemeldet als: <%= current_user.email %> | </td>
+				<td><%= link_to "Abmelden", destroy_user_session_url, method: :delete %></td>
+			</tr>
+		</table>
+	</div>
+
+	<div id="divLPhrase">
+		<table border="0" cellspacing="5" cellpadding="0">
+			<tr>
+				<td>Phrase: </td>
+				<td><input type="password" id="inpPhrase" /></td>
+			</tr>
+		</table>
+	</div>
+</div>

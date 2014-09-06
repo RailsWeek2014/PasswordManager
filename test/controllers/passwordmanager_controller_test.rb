@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class PasswordsControllerTest < ActionController::TestCase
+class PasswordmanagerControllerTest < ActionController::TestCase
   # test "the truth" do
   #   assert true
   # end
