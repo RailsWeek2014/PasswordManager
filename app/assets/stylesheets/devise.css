@@ -1,15 +1,52 @@
-/*Login*/
-#divLoginMutter{
+/*Layout Devise*/
+#divDeviseContent{
 	position: absolute;
+	width: 600px;
+	height: 300px;
 
-	width: 300px;
-	height: 200px;
-
-	margin-top: -100px;
-	margin-left: -150px;
+	margin-top: -150px;
+	margin-left: -300px;
 
 	top: 50%;
 	left: 50%;
 
 	border: 1px solid white;
+}
+	#divDCLinks{
+		position: absolute;
+		width: 40%;
+		height: 100%;
+
+		border-right: 1px solid white;
+	}
+		#divDCLinks table{
+			margin-top: 70px;
+		}
+	#divDCContent{
+		position: absolute;
+		left: 45%;
+		width: 55%;
+	}
+
+/*Devise Login*/
+
+#divLoginMutter{
+	width: 100%;
+	height: 100%;
+}	
+	#tableLogin{
+		width: 100%;
+		height: 100%;
+		margin-top: 20px;
+	}
+		.tableLoginTdMiddle{
+			text-align: center;
+		}
+		.tableLoginTdLabel{
+			text-align: right;
+		}
+
+.deviseUeber{
+	font-size: 25px;
+	text-decoration: underline;
 }
