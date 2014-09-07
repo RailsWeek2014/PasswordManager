@@ -4,9 +4,11 @@ Rails.application.routes.draw do
 
   get "/:phrase" => "passwordmanager#home"
 
-  get "/:phrase/passwords/" => "passwordmanager#index"
+  get "/:phrase/passwords/" => "passwordmanager#index", as: "passwordmanager_index"
 
-  get "/:phrase/passwords/new" => "passwordmanager#new", as: "new_password"
+  get "/:phrase/passwords/new" => "passwordmanager#new", as: "passwordmanager_new"
+
+  get "/:phrase/passwords/:id/edit" => "passwordmanager#edit", as: "passwordmanager_edit"
 
   root to: "passwordmanager#home"
   # The priority is based upon order of creation: first created -> highest priority.

@@ -3,9 +3,16 @@ class PasswordmanagerController < ApplicationController
 		unless params[:phrase]
 			redirect_to "/"
 		end
+
+		@bookmark = 2;
+		@phrase = params[:phrase]
 	end
 
 	def new
+
+	end
+
+	def edit
 		
 	end
 

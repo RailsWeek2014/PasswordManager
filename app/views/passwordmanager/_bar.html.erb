@@ -4,7 +4,7 @@
 		<table border="0" cellspacing="5" cellpadding="0">
 			<tr>
 				<td>Angemeldet als:</td>
-				<td id="tdUserEmail"><%= current_user.email %></td>
+				<td id="tdUserEmail"><%= link_to current_user.email, edit_user_registration_path %></td>
 				<td> | </td>
 				<td><%= link_to "Abmelden", destroy_user_session_url, method: :delete %></td>
 			</tr>
@@ -12,6 +12,8 @@
 	</div>
 
 	<%- if params[:phrase] %>
-		test12
+		<div id="divNavigation">
+			<%= render "passwordmanager/navigation" %>
+		</div>
 	<% end -%>
 </div>
