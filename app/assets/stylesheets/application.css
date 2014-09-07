@@ -29,7 +29,7 @@ body{
 	text-align:center;
 	font-size: 26px;
 	text-decoration: underline;
-	margin-top: 100px;
+	margin-top: 50px;
 }
 
 .linkActive{
@@ -48,3 +48,22 @@ body{
 	width: 100%;
 	text-align: center;
 }
+.tableLoginTdMiddle{
+	text-align: center;
+}
+.tableLoginTdLabel{
+	text-align: right;
+}
+
+/*Leiste*/
+#divLeiste{
+	position: absolute;
+	left: 10%;
+	width: 80%;
+
+	height: 30px;
+	border: 1px solid white;
+}
+	#divUserLastSignIn{
+		display: none;
+	}

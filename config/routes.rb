@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
 
   devise_for :users
-  resources :passwordmanager
+
+  get "/:phrase" => "passwordmanager#home"
+
+  get "/:phrase/passwords/" => "passwordmanager#index"
+
+  get "/:phrase/passwords/new" => "passwordmanager#new", as: "new_password"
 
   root to: "passwordmanager#home"
   # The priority is based upon order of creation: first created -> highest priority.

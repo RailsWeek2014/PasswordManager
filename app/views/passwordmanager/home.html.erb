@@ -1,1 +1,41 @@
 <%= render "passwordmanager/bar" %>
+
+<div id="divPhrase">
+	<table border="0" cellspacing="10" cellpadding="0">
+		<tr>
+			<td colspan="2">
+				<div class="tableLoginTdMiddle" id="divPhraseUeber">
+					Phrase
+				</div>
+			</td>
+		</tr>
+
+		<tr>
+			<td colspan="2">
+				<div class="tableLoginTdMiddle" style="color:red;">
+					Bitte merken Sie sich die Phrase gut!<br />
+					Sie wird zum ver- / entschlüsseln der Passwörter gebraucht und kann <u><strong>NICHT</strong></u> wiederhergestellt werden!
+				</div>
+			</td>
+		</tr>
+
+		<tr>
+			<td>Phrase: </td>
+			<td><input type="password" id="test2" /></td>
+		</tr>
+
+		<tr>
+			<td>
+				<div class="tableLoginTdMiddle">
+					<input type="checkbox" id="test1" />
+				</div>
+			</td>
+			<td>Phrase anzeigen</td>
+		</tr>
+
+		<tr>
+			<td></td>
+			<td><button id="btPhraseSend">Send</button></td>
+		</tr>
+	</table>
+</div>
