@@ -1,15 +1,13 @@
-function init(){
-	$('#test1').change(function(){
-		if($(this).is(":checked")){
-			$("#test2").attr("type","text");
-		}else{
-			$("#test2").attr("type","password");
-		}
-	});
-
-	$('#btPhraseSend').click(function(){
-		location.href = "./"+$('#test2').val();
-	});
+function plainPassword(){
+	if($("#cbPhransePlainText").is(":checked")){
+		$("#inpPhrase").attr("type","text");
+	}else{
+		$("#inpPhrase").attr("type","password");
+	}
 }
 
-window.onload = init;
+function sendPhrase(){
+	location.href = "./"+$('#inpPhrase').val();
+}
+
+//window.onload = init;

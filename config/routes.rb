@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   devise_for :users
 
+  post "/test" => "passwordmanager#test"
+
   get "/:phrase" => "passwordmanager#home"
 
   get "/:phrase/passwords/" => "passwordmanager#index", as: "passwordmanager_index"
@@ -9,6 +11,14 @@ Rails.application.routes.draw do
   get "/:phrase/passwords/new" => "passwordmanager#new", as: "passwordmanager_new"
 
   get "/:phrase/passwords/:id/edit" => "passwordmanager#edit", as: "passwordmanager_edit"
+
+  post "/passwords/" => "passwordmanager#create"
+
+  patch "/passwords/:id" => "passwordmanager#update"
+
+  delete "/:phrase/passwords/:id/" => "passwordmanager#delete", as: "delete_passwordmanager"
+
+  resources :passwords
 
   root to: "passwordmanager#home"
   # The priority is based upon order of creation: first created -> highest priority.

@@ -40,3 +40,6 @@ gem 'spring',        group: :development
 
 #Gem zur benutzer authentifizierung
 gem 'devise'
+gem 'better_errors'
+gem 'binding_of_caller'
+gem 'byebug'

@@ -1,0 +1,30 @@
+
+<div id="divEdNew">
+	<%= form_for(@password, data: {phrase: params[:phrase]}) do |p| %>
+		<%= p.hidden_field "phrase",  value: params[:phrase] %>
+		<table border="1" cellspacing="0" cellpadding="10">
+			<tr>
+				<td><%= p.label :url %></td>
+				<td><%= p.text_field :url %></td>
+			</tr>
+			<tr>
+				<td><%= p.label :login %></td>
+				<td><%= p.text_field :login %></td>
+			</tr>
+			<tr>
+				<td><%= p.label :password %></td>
+				<td><%= p.password_field :password , :id => "inpEdNePasswd" %></td>
+			</tr>
+			<tr>
+				<td style="text-align:center;"><input type="checkbox" id="cbEdNePlaintext" onchange="showPlainText()" /></td>
+				<td>Passwort anzeigen</td>
+			</tr>
+			<tr>
+				<td colspan="2" style="text-align:center;"><button id="btVerschluesseln" type="button" onclick="btClickVerschl()">Verschlüsseln</button></td>
+			</tr>
+			<tr>
+				<td colspan="2" style="text-align: center;"><%= p.submit "Senden", :disabled => 'disabled',:id => 'btEdNeSenden' %></td>
+			</tr>
+			<% end %>
+		</table>
+</div>

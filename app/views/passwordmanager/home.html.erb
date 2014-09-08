@@ -21,13 +21,13 @@
 
 		<tr>
 			<td>Phrase: </td>
-			<td><input type="password" id="test2" /></td>
+			<td><input type="password" id="inpPhrase" /></td>
 		</tr>
 
 		<tr>
 			<td>
 				<div class="tableLoginTdMiddle">
-					<input type="checkbox" id="test1" />
+					<input type="checkbox" id="cbPhransePlainText" onchange="plainPassword();" />
 				</div>
 			</td>
 			<td>Phrase anzeigen</td>
@@ -35,7 +35,7 @@
 
 		<tr>
 			<td></td>
-			<td><button id="btPhraseSend">Send</button></td>
+			<td><button id="btPhraseSend" type="button" onclick="sendPhrase();">Send</button></td>
 		</tr>
 	</table>
 </div>
