@@ -1,18 +1,17 @@
 <div id="searchBar">
-	<table border="0" cellspacing="10" cellpadding="0" width="100%">
-		<tr>
-			<td width="10%">
-				<div class="tableLoginTdMiddle">
-					Suche: 
-				</div>
-			</td></td>
-			<td width="20%">
-				<select>
-					<option>Email</option>
-					<option>URL</option>
-				</select>
-			</td>
-			<td width="70%"><input type="text" /></td>
-		</tr>
-	</table>
+	<%= form_tag passwordmanager_search_url,:id => "seachSubmit",remote: true do %>
+		<table border="0" cellspacing="10" cellpadding="0" width="100%">
+			<tr>
+				<td width="10%">
+					<div class="tableLoginTdMiddle">
+						Suche: 
+					</div>
+				</td></td>
+				<td width="20%">
+					<%= select_tag(:search_id, options_for_select([['All', 1], ['Email', 2], ['URL', 3]], 1),:onchange => "$('#seachSubmit').submit();") %>
+				</td>
+				<td width="70%"><%= text_field_tag :term ,"",:onkeyup => "$('#seachSubmit').submit(); " %></td>
+			</tr>
+		</table>
+	<% end %>
 </div>

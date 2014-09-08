@@ -10,6 +10,19 @@ class PasswordmanagerController < ApplicationController
 		@passwords = Password.where user_id: current_user.id
 	end
 
+	def search
+		case(params[:search_id])
+			when "1"
+				@passwords = Password.where "login LIKE ? OR url LIKE ?","%#{params[:term]}%","%#{params[:term]}%"
+			when "2"
+				@passwords = Password.where "login LIKE ?","%#{params[:term]}%"
+			when "3"
+				@passwords = Password.where "url LIKE ?","%#{params[:term]}%"
+			else
+				@passwords = Password.all
+		end
+	end
+
 	def new
 		@password = Password.new
 	end

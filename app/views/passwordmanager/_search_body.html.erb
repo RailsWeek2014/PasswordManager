@@ -1,0 +1,16 @@
+<div id="divIndexInhalt">
+	<% passwords.each do |passwd| %>
+		<div class="divIPassword">
+			<table border="0" cellspacing="10" cellpadding="0" width="100%">
+				<tr>
+					<td width="25%"><%= passwd.url %></td>
+					<td width="20%"><%= passwd.login %></td>
+					<td width="20%"><%= passwd.password %></td>
+					<td width="15%"><%= link_to "Passwort anzeigen" %></td>
+					<td width="10%"><%= link_to "Bearbeiten", passwordmanager_edit_path(params[:phrase],passwd) %></td>
+					<td width="10%"><%= link_to 'löschen', delete_passwordmanager_path(params[:phrase],passwd), data: {confirm: "'#{passwd.url}' wirklich löschen?"}, method: :delete %></td>
+				</tr>
+			</table>
+		</div>
+	<% end %>
+</div>
