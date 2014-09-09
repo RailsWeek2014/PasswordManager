@@ -1,0 +1,31 @@
+<table border="0" cellspacing="10" cellpadding="0" width="100%">
+	<tr>
+		<td><%= render partial: "passwordmanager/bar" %></td>
+	</tr>
+	<tr><td>&#160;</td></tr>
+	<tr>
+		<td>
+			<div id="divSLUeber">
+				<%= "Addressen mit '#{params[:login]}' als login:" %>
+			</div>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<table border="0" cellspacing="0" cellpadding="0" width="70%" style="margin-left:20%;">
+				<tr>
+					<td>
+						<%= render partial: 'passwordmanager/search_body_top', locals: {isLogin: false} %>
+						</td>
+					<tr>
+						<td>
+							<div>
+								<%= render partial: "passwordmanager/search_body", locals: {passwords: @password,isLogin: false} %>
+							</div>
+						</td>
+					</tr>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>

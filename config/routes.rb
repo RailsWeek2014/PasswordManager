@@ -2,8 +2,6 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  post "/test" => "passwordmanager#test"
-
   get "/:phrase" => "passwordmanager#home"
 
   get "/:phrase/passwords/" => "passwordmanager#index", as: "passwordmanager_index"
@@ -13,6 +11,8 @@ Rails.application.routes.draw do
   get "/:phrase/passwords/new" => "passwordmanager#new", as: "passwordmanager_new"
 
   get "/:phrase/passwords/:id/edit" => "passwordmanager#edit", as: "passwordmanager_edit"
+
+  get "/:phrase/passwords/:login/show" => "passwordmanager#showLogin", as: "passwordmanager_showLogin"
 
   post "/passwords/" => "passwordmanager#create"
 

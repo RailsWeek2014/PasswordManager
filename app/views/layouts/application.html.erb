@@ -7,9 +7,16 @@
 	<%= csrf_meta_tags %>
 </head>
 <body>
-	<div id="divUeber">Passwort Manager</div>
-
-	<%= yield %>
-
+	<table border="0" cellspacing="10" cellpadding="0" width="100%">
+		<tr>
+			<td><div id="divUeber">Passwort Manager</div></td>
+		</tr>
+		<tr>
+			<td>&#160;</td>
+		</tr>
+		<tr>
+			<td><%= yield %></td>
+		</tr>
+	</table>
 </body>
 </html>

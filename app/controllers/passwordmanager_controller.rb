@@ -23,6 +23,10 @@ class PasswordmanagerController < ApplicationController
 		end
 	end
 
+	def showLogin
+		@password = Password.where "login = ?",params[:login]
+	end
+
 	def new
 		@password = Password.new
 	end
@@ -43,6 +47,7 @@ class PasswordmanagerController < ApplicationController
 
 		if(@password.save)
 			current_user.passwords << @password
+			flash[:notice] = "'#{@password.url}' wurder erfolgreich erstellt!"
 			redirect_to passwordmanager_index_path(phrase)
 		else
 			redirect_to passwordmanager_new_path(phrase)
@@ -52,7 +57,14 @@ class PasswordmanagerController < ApplicationController
 	def update
 		phrase = params[:password].delete(:phrase)
 		@passwd = Password.find(params[:id])
-		if @passwd.update_attributes(password_params)
+		@passParams = password_params
+
+		if(@passParams[:password] == "")
+			@passParams.delete(:password)
+		end
+		
+		if @passwd.update_attributes(@passParams)
+			flash[:notice] = "'#{@passwd.url}' wurde erfolgreich verändert"
 			redirect_to passwordmanager_index_path(phrase)
 		else
 			redirect_to passwordmanager_edit_path(phrase,params[:id])
@@ -61,7 +73,9 @@ class PasswordmanagerController < ApplicationController
 
 	def delete
 		@passwd = Password.find(params[:id])
+		@url = @passwd.url
 		@passwd.destroy
+		flash[:notice] = "'#{@url}' wurde erfolgreich gelöscht"
 		redirect_to passwordmanager_index_path(params[:phrase])
 	end
 

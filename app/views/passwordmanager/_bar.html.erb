@@ -1,19 +1,19 @@
 <div id="divLeiste">
-	<div id="divLUser">
-		<div id="divUserLastSignIn"><%= current_user.current_sign_in_at %></div>
-		<table border="0" cellspacing="5" cellpadding="0">
-			<tr>
-				<td>Angemeldet als:</td>
-				<td id="tdUserEmail"><%= link_to current_user.email, edit_user_registration_path %></td>
-				<td> | </td>
-				<td><%= link_to "Abmelden", destroy_user_session_url, method: :delete %></td>
-			</tr>
-		</table>
-	</div>
-
-	<%- if params[:phrase] %>
-		<div id="divNavigation">
-			<%= render "passwordmanager/navigation" %>
-		</div>
-	<% end -%>
+	<table border="0" cellspacing="5" cellpadding="0" style="margin-top:-9px;">
+		<tr>
+			<td>Angemeldet als:</td>
+			<td id="tdUserEmail"><%= link_to current_user.email, edit_user_registration_path %></td>
+			<td> | </td>
+			<td><%= link_to "Abmelden", destroy_user_session_url, method: :delete %></td>
+			<td><div id="divUserLastSignIn"><%= current_user.current_sign_in_at %></div></td>
+			<td width="20%">&#160;</td>
+			<td>
+				<%- if params[:phrase] %>
+					<div id="divNavigation">
+						<%= render "passwordmanager/navigation" %>
+					</div>
+				<% end -%>
+			</td>
+		</tr>
+	</table>
 </div>

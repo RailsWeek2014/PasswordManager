@@ -1,20 +1,44 @@
-<%= render "passwordmanager/bar" %>
+<table border="0" cellspacing="10" cellpadding="0" width="100%" height="100%">
+	<tr>
+		<td><%= render "passwordmanager/bar" %></td>
+	</tr>
+	<tr>
+		<td><%= render "passwordmanager/searchBar" %></td>
+	</tr>
+	<% if flash[:alert] %>
+		<tr>
+			<td >
+				<div class="error"><%= flash[:alert] %></div>
+			</td>
+		</tr>
+	<% end %>
 
-<%= render "passwordmanager/searchBar" %>
+	<% if flash[:notice] %>
+		<tr>
+			<td >
+				<div class="notice"><%= flash[:notice] %></div>
+			</td>
+		</tr>
+	<% end %>
 
-<div id="divIndexBax">
-	<div class="divIPassword">
-		<table border="0" cellspacing="10" cellpadding="0" width="100%">
-			<tr>
-				<td width="25%">URL:</td>
-				<td width="20%">Login:</td>
-				<td width="20%">Passwort:</td>
-				<td width="15%"></td>
-				<td width="10%"></td>
-				<td width="10%"></td>
-			</tr>
-		</table>
-	</div>
-</div>
-
- <%= render partial: 'passwordmanager/search_body', locals: {passwords:@passwords} %>
+	<tr>
+		<td>
+			<table border="0" cellspacing="0" cellpadding="0" width="100%">
+				<tr>
+					<td>
+						<div id="divIndexBar">
+							<%= render partial: 'passwordmanager/search_body_top', locals: {isLogin: true} %>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<div id="divIndexInhalt">
+							 <%= render partial: 'passwordmanager/search_body', locals: {passwords:@passwords,isLogin: true} %>
+						</div>
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
