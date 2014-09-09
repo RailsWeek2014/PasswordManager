@@ -8,6 +8,10 @@ function plainPassword(){
 
 function sendPhrase(){
 	location.href = "./"+$('#inpPhrase').val();
-}
 
-//window.onload = init;
+}
+function sendPhraseInput(e){
+	if(e.keyCode == 13){
+		sendPhrase();
+	}
+}

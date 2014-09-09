@@ -1,25 +1,10 @@
-<table border="0" cellspacing="10" cellpadding="0" width="100%" height="100%">
+<table border="0" cellspacing="10" cellpadding="0" width="100%" height="100%" style="min-width:1200px;">
 	<tr>
 		<td><%= render "passwordmanager/bar" %></td>
 	</tr>
 	<tr>
 		<td><%= render "passwordmanager/searchBar" %></td>
 	</tr>
-	<% if flash[:alert] %>
-		<tr>
-			<td >
-				<div class="error"><%= flash[:alert] %></div>
-			</td>
-		</tr>
-	<% end %>
-
-	<% if flash[:notice] %>
-		<tr>
-			<td >
-				<div class="notice"><%= flash[:notice] %></div>
-			</td>
-		</tr>
-	<% end %>
 
 	<tr>
 		<td>
@@ -34,7 +19,7 @@
 				<tr>
 					<td>
 						<div id="divIndexInhalt">
-							 <%= render partial: 'passwordmanager/search_body', locals: {passwords:@passwords,isLogin: true} %>
+							 <%= render partial: 'passwordmanager/search_body', locals: {passwords:@passwords,isLogin: true,route: @route} %>
 						</div>
 					</td>
 				</tr>

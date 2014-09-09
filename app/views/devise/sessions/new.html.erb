@@ -7,11 +7,11 @@
 			</td>
 		</tr>
 		<tr>
-			<td class="tableLoginTdLabel"><%= f.label :email %></td>
+			<td class="tableLoginTdLabel"><%= f.label :email, "Email:" %></td>
 			<td><%= f.email_field :email, autofocus: true %></td>
 		</tr>
 		<tr>
-			<td class="tableLoginTdLabel"><%= f.label :password %></td>
+			<td class="tableLoginTdLabel"><%= f.label :password, "Passwort:" %></td>
 			<td><%= f.password_field :password, autocomplete: "off" %></td>
 		</tr>
 		<% if devise_mapping.rememberable? -%>

@@ -16,3 +16,10 @@
 //= require_tree .
 
 
+function init(){
+	alert("vorher");
+	$('.notice').cass("display","block").delay(5000).css("display","none");
+	alert("nachher");
+}
+
+window.onlaod = init;

@@ -8,23 +8,33 @@ class PasswordmanagerController < ApplicationController
 		@phrase = params[:phrase]
 
 		@passwords = Password.where user_id: current_user.id
+		@passwords = @passwords.order('LOWER(login) ASC')
+
+		@route = "index"
+
 	end
 
 	def search
 		case(params[:search_id])
 			when "1"
 				@passwords = Password.where "login LIKE ? OR url LIKE ?","%#{params[:term]}%","%#{params[:term]}%"
+				@passwords = @passwords.order('LOWER(login) ASC')
 			when "2"
 				@passwords = Password.where "login LIKE ?","%#{params[:term]}%"
+				@passwords = @passwords.order('LOWER(login) ASC')
 			when "3"
 				@passwords = Password.where "url LIKE ?","%#{params[:term]}%"
+				@passwords = @passwords.order('LOWER(url) ASC')
 			else
 				@passwords = Password.all
 		end
+
+		session[:search_string] = params[:term]
 	end
 
 	def showLogin
 		@password = Password.where "login = ?",params[:login]
+		@route = "showLogin"
 	end
 
 	def new
@@ -37,20 +47,22 @@ class PasswordmanagerController < ApplicationController
 
 	def home
 		if params[:phrase]
-			redirect_to "/#{params[:phrase]}/passwords/"
+			redirect_to passwordmanager_index_path(params[:phrase])
 		end
 	end
 
 	def create
 		phrase = params[:password].delete(:phrase)
-		@password = Password.new password_params
+		@passParams = password_params
+
+		@password = Password.new @passParams
 
 		if(@password.save)
 			current_user.passwords << @password
 			flash[:notice] = "'#{@password.url}' wurder erfolgreich erstellt!"
-			redirect_to passwordmanager_index_path(phrase)
+			redirect_to password_index_path(phrase)
 		else
-			redirect_to passwordmanager_new_path(phrase)
+			redirect_to new_password_path(phrase)
 		end
 	end
 
@@ -64,23 +76,39 @@ class PasswordmanagerController < ApplicationController
 		end
 		
 		if @passwd.update_attributes(@passParams)
-			flash[:notice] = "'#{@passwd.url}' wurde erfolgreich verändert"
-			redirect_to passwordmanager_index_path(phrase)
+			flash[:notice] = "'#{@passwd.url}' wurde erfolgreich verändert!"
+			redirect_to password_index_path(phrase)
 		else
-			redirect_to passwordmanager_edit_path(phrase,params[:id])
+			redirect_to edit_password_path(phrase,params[:id])
 		end
 	end
 
-	def delete
+	def destroy
 		@passwd = Password.find(params[:id])
 		@url = @passwd.url
 		@passwd.destroy
 		flash[:notice] = "'#{@url}' wurde erfolgreich gelöscht"
-		redirect_to passwordmanager_index_path(params[:phrase])
+
+		@passwordsInDataB = Password.where "login = ?","#{@passwd.login}"
+
+		case(@passwordsInDataB.count)
+			when 0
+				redirect_to passwordmanager_index_path(params[:phrase])
+			else
+				case(params[:route])
+					when "index"
+						redirect_to passwordmanager_index_path(params[:phrase])
+					when "showLogin"
+						redirect_to passwordmanager_showLogin_path(params[:phrase],@passwd.login)
+					else
+						redirect_to passwordmanager_index_path(params[:phrase])
+				end
+		end
 	end
 
 	private
 		def password_params
 			params.require('password').permit("url", "login", "password")
 		end
+
 end

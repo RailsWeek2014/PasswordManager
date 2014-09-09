@@ -1,28 +1,33 @@
 Rails.application.routes.draw do
 
-  devise_for :users
+#  devise_for :users
+
+#  scope "/:phrase/" do 
+#    resources :passwordmanager
+#  end
+
 
   get "/:phrase" => "passwordmanager#home"
-
-  get "/:phrase/passwords/" => "passwordmanager#index", as: "passwordmanager_index"
-
-  post "/:phrase/passwords/search" => "passwordmanager#search", as:"passwordmanager_search"
-
-  get "/:phrase/passwords/new" => "passwordmanager#new", as: "passwordmanager_new"
-
-  get "/:phrase/passwords/:id/edit" => "passwordmanager#edit", as: "passwordmanager_edit"
-
-  get "/:phrase/passwords/:login/show" => "passwordmanager#showLogin", as: "passwordmanager_showLogin"
-
-  post "/passwords/" => "passwordmanager#create"
-
-  patch "/passwords/:id" => "passwordmanager#update"
-
-  delete "/:phrase/passwords/:id/" => "passwordmanager#delete", as: "delete_passwordmanager"
-
-  resources :passwords
-
-  root to: "passwordmanager#home"
+##
+#  get "/:phrase/passwords/" => "passwordmanager#index", as: "passwordmanager_index"
+##
+  post "/:phrase/passwordmanager/search" => "passwordmanager#search", as:"passwordmanager_search"
+##
+#  get "/:phrase/passwords/new" => "passwordmanager#new", as: "passwordmanager_new"
+##
+#  get "/:phrase/passwords/:id/edit" => "passwordmanager#edit", as: "passwordmanager_edit"
+##
+  get "/:phrase/passwordmanager/:login/show" => "passwordmanager#showLogin", as: "passwordmanager_showLogin"
+##
+#  post "/passwords/" => "passwordmanager#create"
+##
+#  patch "/passwords/:id" => "passwordmanager#update"
+##
+#  delete "/:phrase/passwords/:id/:route/" => "passwordmanager#delete", as: "delete_passwordmanager"
+##
+#  resources :password
+##
+ root to: "passwordmanager#home"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

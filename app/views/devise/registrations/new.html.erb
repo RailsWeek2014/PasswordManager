@@ -2,7 +2,7 @@
 	<table border="0" cellspacing="0" cellpadding="7">
 		<tr>
 			<td class="tableLoginTdMiddle" colspan="2">
-				<div class="deviseUeber">Sign up</div>
+				<div class="deviseUeber">Registrieren</div>
 			</td>
 		</tr>
 		<tr>
@@ -13,7 +13,7 @@
 
 		<tr>
 			<td>
-				<div><%= f.label :email %></div>
+				<div class="tableLoginTdLabel"><%= f.label :email, "Email:" %></div>
 			</td>
 			<td>
   				<%= f.email_field :email, autofocus: true %>
@@ -22,10 +22,10 @@
 
   		<tr>
   			<td>
-  				<div>
-	  				<%= f.label :password %>
+  				<div class="tableLoginTdLabel">
+	  				<%= f.label :password,"Passwort:" %>
 	  				<% if @validatable %>
-	  					<br /><i>(<%= @minimum_password_length %> characters minimum)</i>
+	  					<br /><i>(<%= "Mindestens #{@minimum_password_length}  Zeichen"%>)</i>
 	  				<% end %>
 	  			</div>
 	  		</td>
@@ -36,7 +36,7 @@
 
     	<tr>
     		<td>
-  				<div><%= f.label :password_confirmation %></div>
+  				<div class="tableLoginTdLabel"><%= f.label :password_confirmation,"Passwort wiederholen:" %></div>
   			</td>
   			<td>
     			<%= f.password_field :password_confirmation, autocomplete: "off" %>

@@ -2,7 +2,15 @@
 <div id="divEdNew">
 	<table border="0" cellspacing="10" cellpadding="0" width="100%">
 	<tr>
-		<td></td>
+		<td>
+			<div class="error">
+				<ul>
+				<% @password.errors.full_messages.each do |msg| %>
+					<li><%= msg %></li>
+				<% end %>
+				</ul>
+			</div>
+		</td>
 	</tr>
 	<tr>
 		<td>

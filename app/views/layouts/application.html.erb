@@ -14,6 +14,23 @@
 		<tr>
 			<td>&#160;</td>
 		</tr>
+
+		<% if flash[:alert] %>
+			<tr>
+				<td >
+					<div class="error"><%= flash[:alert] %></div>
+				</td>
+			</tr>
+		<% end %>
+
+		<% if flash[:notice] %>
+			<tr>
+				<td >
+					<div class="notice"><%= flash[:notice] %></div>
+				</td>
+			</tr>
+		<% end %>
+		
 		<tr>
 			<td><%= yield %></td>
 		</tr>
