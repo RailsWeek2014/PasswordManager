@@ -9,10 +9,15 @@
 					<td width="20%"><%= link_to passwd.login,passwordmanager_showLogin_path(params[:phrase],passwd.login) %></td>
 				<% end %>
 				<td width="20%"><%= passwd.url %></td>
-				<td width="20%"><%= passwd.password %></td>
-				<td width="15%"><%= link_to "Passwort anzeigen" %></td>
+				<td width="20%">
+					<div id=<%= "divPasswdUeber#{passwd.id}" %> password=>********************</div>
+					<div style="display:none;" id=<%= "divPasswdUeber#{passwd.id}passwd" %>><%= passwd.password %></div>
+				</td>
+				<td width="15%" ><div id=<%= "tdPasswdTimer#{passwd.id}" %>>
+					<a class="divPasswdUeber" passwordID=<%= "#{passwd.id}" %>>Passwort anzeigen</a>
+				</div></td>
 				<td width="10%"><%= link_to "Bearbeiten", edit_passwordmanager_path(params[:phrase],passwd) %></td>
-				<td width="10%"><%= link_to 'löschen', passwordmanager_path(params[:phrase],passwd,route), data: {confirm: "'#{passwd.url}' wirklich löschen?"}, method: :delete %></td>
+				<td width="10%"><%= link_to 'löschen', destroy_password_path(params[:phrase],passwd,route), data: {confirm: "'#{passwd.url}' wirklich löschen?"}, method: :delete %></td>
 			</tr>
 		</table>
 	</div>

@@ -53,3 +53,6 @@ body{
 .tableLoginTdLabel{
 	text-align: right;
 }
+.divPasswdUeber{
+	cursor: pointer;
+}

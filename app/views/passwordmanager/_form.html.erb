@@ -14,7 +14,7 @@
 	</tr>
 	<tr>
 		<td>
-		<%= form_for(@password, data: {phrase: params[:phrase]}) do |p| %>
+		<%= form_for(@password) do |p| %>
 			<%= p.hidden_field "phrase",  value: params[:phrase] %>
 			<table border="1" cellspacing="0" cellpadding="10">
 				<tr>

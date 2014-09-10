@@ -2,10 +2,11 @@
 	<table border="0" cellspacing="5" cellpadding="0" style="margin-top:-9px;">
 		<tr>
 			<td>Angemeldet als:</td>
-			<td id="tdUserEmail"><%= link_to current_user.email, edit_user_registration_path %></td>
+			<td id="tdUserEmail"><%= link_to current_user.email, edit_user_registration_path, :email => current_user.email, :id => "aEmail" %></td>
 			<td> | </td>
 			<td><%= link_to "Abmelden", destroy_user_session_url, method: :delete %></td>
 			<td><div id="divUserLastSignIn"><%= current_user.current_sign_in_at %></div></td>
+			<td><div id="divUserPhrase"><%= params[:phrase] %></div></td>
 			<td width="20%">&#160;</td>
 			<td>
 				<%- if params[:phrase] %>

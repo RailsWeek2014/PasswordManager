@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
 
-#  devise_for :users
+  devise_for :users
 
-#  scope "/:phrase/" do 
-#    resources :passwordmanager
-#  end
+  scope "/:phrase/" do 
+    resources :passwordmanager, :passwords
+  end
 
+  delete "/:phrase/passwords/:id/:route/" => "passwords#destroy", as: "destroy_password"
 
   get "/:phrase" => "passwordmanager#home"
 ##
