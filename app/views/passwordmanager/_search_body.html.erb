@@ -16,7 +16,7 @@
 				<td width="15%" ><div id=<%= "tdPasswdTimer#{passwd.id}" %>>
 					<a class="divPasswdUeber" passwordID=<%= "#{passwd.id}" %>>Passwort anzeigen</a>
 				</div></td>
-				<td width="10%"><%= link_to "Bearbeiten", edit_passwordmanager_path(params[:phrase],passwd) %></td>
+				<td width="10%"><%= link_to "bearbeiten", edit_passwordmanager_path(params[:phrase],passwd) %></td>
 				<td width="10%"><%= link_to 'löschen', destroy_password_path(params[:phrase],passwd,route), data: {confirm: "'#{passwd.url}' wirklich löschen?"}, method: :delete %></td>
 			</tr>
 		</table>

@@ -1,13 +1,87 @@
 <div class="divIPassword">
+	<div id="orderList"><%= session[:order_by] %></div>
+
+	<%= form_tag passwordmanager_order_url, :id => "orderSubmit",remote: true do %>
+		<%= hidden_field_tag "orderID",session[:order_by] %>
+	<% end %>
+
 	<table border="0" cellspacing="10" cellpadding="0" width="100%">
 		<tr>
 			<td width="5%"></td>
 			<% if isLogin %>
-				<td width="20%">Login:</td>
+				<td width="20%" valign="top">
+					<div>
+						<table border="0" cellspacing="0" cellpadding="0"  style="margin-top:-7px;">
+							<tr>
+								<td><div>Login:</div></td>
+								<td>
+									<table border="0" cellspacing="0" cellpadding="0" style="margin-top:-10px;">
+										<tr>
+											<td>
+												<div class="clickAble" id="loginASC" style="margin-left:20px;" onclick="reorderList('loginASC');">
+													<% if session[:order_by] == "1" %>
+															<%= image_tag("cornerUpActive.png",:width => "15px") %>
+													<% else %>
+															<%= image_tag("cornerUp.png",:width => "15px") %>
+													<% end %>
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<div class="clickAble" id="loginDESC" style="margin-left:20px;" onclick="reorderList('loginDESC');">
+													<% if session[:order_by] == "2" %>
+														<%= image_tag("cornerDownActive.png",:width => "15px") %>
+													<% else %>
+														<%= image_tag("cornerDown.png",:width => "15px") %>
+													<% end %>
+												</div>
+											</td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+						</table>
+					</div>
+				</td>
 			<% end %>
-			<td width="20%">URL:</td>
-			<td width="20%">Passwort:</td>
-			<td width="15%"></td>
+			<td width="20%" valign="top">
+				<div>
+						<table border="0" cellspacing="0" cellpadding="0"  style="margin-top:-7px;">
+							<tr>
+								<td><div>URL:</div></td>
+								<td>
+									<table border="0" cellspacing="0" cellpadding="0" style="margin-top:-10px;">
+										<tr>
+											<td>
+												<div class="clickAble" id="" style="margin-left:20px;" onclick="reorderList('urlASC');">
+													<% if session[:order_by] == "3" %>
+															<%= image_tag("cornerUpActive.png",:width => "15px") %>
+													<% else %>
+															<%= image_tag("cornerUp.png",:width => "15px") %>
+													<% end %>
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<div class="clickAble" style="margin-left:20px;" onclick="reorderList('urlDESC');">
+													<% if session[:order_by] == "4" %>
+														<%= image_tag("cornerDownActive.png",:width => "15px") %>
+													<% else %>
+														<%= image_tag("cornerDown.png",:width => "15px") %>
+													<% end %>
+												</div>
+											</td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+						</table>
+					</div>
+			</td>
+			<td width="20%" valign="top"><div style="margin-top:-3px;">Passwort:</div></td>
+			<td width="15%" valign="top"></td>
 			<td width="10%"></td>
 			<td width="10%"></td>
 		</tr>

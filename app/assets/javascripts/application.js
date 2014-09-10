@@ -67,8 +67,6 @@ function calUserPhrase(){
 	var loggedIn = $('#divUserLastSignIn').html();
 	if(zwischen[1] == loggedIn){
 		userPhrase = zwischen[0];
-	}else{
-		location.href = "/users/sign_out";
 	}
 }
 

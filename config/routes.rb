@@ -13,6 +13,8 @@ Rails.application.routes.draw do
 #  get "/:phrase/passwords/" => "passwordmanager#index", as: "passwordmanager_index"
 ##
   post "/:phrase/passwordmanager/search" => "passwordmanager#search", as:"passwordmanager_search"
+
+  post "/:phrase/passwordmanager/order" => "passwordmanager#order", as: "passwordmanager_order"
 ##
 #  get "/:phrase/passwords/new" => "passwordmanager#new", as: "passwordmanager_new"
 ##

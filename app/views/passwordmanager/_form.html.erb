@@ -27,7 +27,7 @@
 				</tr>
 				<tr> 	
 					<td><%= p.label :password ,"Passwort" %></td>
-					<td><%= p.password_field :password , :id => "inpEdNePasswd" %></td>
+					<td><%= p.password_field :password , :id => "inpEdNePasswd", :onkeyup => "changePassw();" %></td>
 				</tr>
 				<tr>
 					<td style="text-align:center;"><input type="checkbox" id="cbEdNePlaintext" onchange="showPlainText()" /></td>

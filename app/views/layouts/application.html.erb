@@ -7,6 +7,9 @@
 	<%= csrf_meta_tags %>
 </head>
 <body>
+	<% if session[:order_by] == nil %>
+		<% session[:order_by] = "1" %>
+	<% end %>
 	<table border="0" cellspacing="10" cellpadding="0" width="100%">
 		<tr>
 			<td><div id="divUeber">Passwort Manager</div></td>

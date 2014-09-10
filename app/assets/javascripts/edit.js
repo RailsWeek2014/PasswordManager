@@ -16,3 +16,8 @@ function showPlainText(){
 		$("#inpEdNePasswd").attr("type","password");
 	}
 }
+
+function changePassw(){
+	$('#btVerschluesseln').removeAttr("disabled");
+	$('#btEdNeSenden').attr("disabled","disabled");
+}
