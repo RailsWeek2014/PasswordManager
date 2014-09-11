@@ -38,10 +38,7 @@ function setPasswdEncrypt(){
 		var query = "#divPasswdUeber"+id;
 		var passwd = $(query+"passwd").html();
 		var decrypted = sjcl.decrypt(userPhrase, passwd);
-
-		alert("");
-
-
+		
 		$(query).html(decrypted);
 		window.setTimeout(function(){
 			$(query).html("********************");

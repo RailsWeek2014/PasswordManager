@@ -6,8 +6,12 @@
 	>
 		<tr>
 			<td>Angemeldet als:</td>
-			<td id="tdUserEmail"><%= link_to current_user.email, edit_user_registration_path, :email => current_user.email, :id => "aEmail" %></td>
+			<td id="tdUserEmail"><%= link_to current_user.email, edit_user_registration_url, :email => current_user.email, :id => "aEmail" %></td>
 			<td> | </td>
+			<% if params[:phrase] %>
+				<td><%= link_to "Phrase bearbeiten", edit_phrase_passwordmanager_url %></td>
+				<td> | </td>
+			<% end %>
 			<td><%= link_to "Abmelden", destroy_user_session_url, method: :delete %></td>
 			<td><div id="divUserLastSignIn"><%= current_user.current_sign_in_at %></div></td>
 			<td><div id="divUserPhrase"><%= params[:phrase] %></div></td>

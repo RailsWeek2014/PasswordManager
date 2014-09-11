@@ -58,6 +58,17 @@ class PasswordsController < ApplicationController
 		end
 	end
 
+	def updateAllPassw
+		@passwd = Password.find(params[:pwUpdateID])
+		@params2 = {:password => params[:pwUpdatePw]}
+
+		if(@passwd.update_attributes(@params2))
+			puts "erfolgreich"
+		else
+			puts "nicht erfolgreich"
+		end
+	end
+
 	private
 		def password_params
 			params.require('password').permit("url", "login", "password")

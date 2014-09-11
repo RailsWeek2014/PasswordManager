@@ -1,0 +1,73 @@
+<table border="0" cellpadding="0" cellspacing="10" width="100%">
+	<div style="display:none;" id="divEdPhrLager"></div>
+	<%= form_tag get_all_passwords_passwordmanager_url, :id => "subGetAllPasswords", remote: true do %>
+		<%= hidden_field_tag "orderID" %>
+	<% end %>
+
+	<%= form_tag update_all_passwd_passwords_url,:id => "subUpdateAllPasswords",method: :patch,remote:true do %>
+		<%= hidden_field_tag "pwUpdateID" %>
+		<%= hidden_field_tag "pwUpdatePw" %>
+	<% end %>
+
+	<tr>
+		<td><%= render partial: "passwordmanager/bar" %></td>
+	</tr>
+	<tr>
+		<td>
+			<div id="divEditPhrase">
+				<table border="0" cellspacing="0" cellpadding="10" width="100%">
+					<tr>
+						<td colspan="2"><div id="divEdPhError" class="error"></div></td>
+					</tr>
+					<tr>
+						<td colspan="2"><div id="divEdPhErfolg" class="notice"></div></td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							<div class="tableLoginTdMiddle"><u>Phrase bearbeiten:</u></div>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							<div class="error">
+								tst12
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td class="tableLoginTdLabel" width="30%">alte Phrase:</td>
+						<td width="65%">
+							<input type="password" id="inpOldPasswd" class="inpPhrEd" style="width:95%;" />
+						</td>
+					</tr>	
+					<tr>
+						<td class="tableLoginTdLabel" width="30%">neue Phrase:</td>
+						<td width="65%">
+							<input type="password" id="inpEPPasswd" class="inpPhrEd" style="width:95%;" />
+						</td>
+					</tr>	
+					<tr>
+						<td class="tableLoginTdLabel" width="30%">neue Phrase wdh.:</td>
+						<td width="65%">
+							<input type="password"  id="inpEPPasswdWhd" class="inpPhrEd" style="width:95%;" />
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div class="tableLoginTdLabel">
+								<input type="checkbox" id="cbEditPhrase" onchange="epPhrasePlainText();" />
+							</div>
+						</td>
+						<td>Phrasen anzeigen</td>
+					</tr>	
+					<tr>
+						<td></td>
+						<td>
+							<button type="button" id="btEPSenden" onclick="btEditPhrase();">Ändern</button>
+						</td>
+					</tr>			
+				</table>
+			</div>
+		</td>
+	</tr>
+</table>

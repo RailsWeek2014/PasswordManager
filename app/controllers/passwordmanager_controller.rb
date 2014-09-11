@@ -55,6 +55,14 @@ class PasswordmanagerController < ApplicationController
 		@passwords = searchString
 	end
 
+	def editphrase
+
+	end
+
+	def getAllPasswords
+		@passwords = Password.all
+	end
+
 	private
 		def searchString
 			unless(session[:search_string] == "")

@@ -2,34 +2,26 @@ Rails.application.routes.draw do
 
   devise_for :users
 
+  delete "/:phrase/passwords/:id/:route/" => "passwords#destroy", as: "destroy_password"
+
+  get "/:phrase" => "passwordmanager#home"
+
+  post "/:phrase/passwordmanager/search" => "passwordmanager#search", as:"passwordmanager_search"
+
+  post "/:phrase/passwordmanager/order" => "passwordmanager#order", as: "passwordmanager_order"
+
+  post "/:phrase/passwordmanager/getallpasswords" => "passwordmanager#getAllPasswords", as: "get_all_passwords_passwordmanager"
+
+  get "/:phrase/passwordmanager/:login/show" => "passwordmanager#showLogin", as: "passwordmanager_showLogin"
+
+  get "/:phrase/passwordmanager/editphrase" => "passwordmanager#editphrase", as:"edit_phrase_passwordmanager"
+
+  patch "/:phrase/passwords/updateAllPasswd" => "passwords#updateAllPassw", as: "update_all_passwd_passwords"
+
   scope "/:phrase/" do 
     resources :passwordmanager, :passwords
   end
 
-  delete "/:phrase/passwords/:id/:route/" => "passwords#destroy", as: "destroy_password"
-
-  get "/:phrase" => "passwordmanager#home"
-##
-#  get "/:phrase/passwords/" => "passwordmanager#index", as: "passwordmanager_index"
-##
-  post "/:phrase/passwordmanager/search" => "passwordmanager#search", as:"passwordmanager_search"
-
-  post "/:phrase/passwordmanager/order" => "passwordmanager#order", as: "passwordmanager_order"
-##
-#  get "/:phrase/passwords/new" => "passwordmanager#new", as: "passwordmanager_new"
-##
-#  get "/:phrase/passwords/:id/edit" => "passwordmanager#edit", as: "passwordmanager_edit"
-##
-  get "/:phrase/passwordmanager/:login/show" => "passwordmanager#showLogin", as: "passwordmanager_showLogin"
-##
-#  post "/passwords/" => "passwordmanager#create"
-##
-#  patch "/passwords/:id" => "passwordmanager#update"
-##
-#  delete "/:phrase/passwords/:id/:route/" => "passwordmanager#delete", as: "delete_passwordmanager"
-##
-#  resources :password
-##
  root to: "passwordmanager#home"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
