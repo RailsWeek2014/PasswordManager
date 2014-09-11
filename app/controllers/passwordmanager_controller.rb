@@ -32,8 +32,16 @@ class PasswordmanagerController < ApplicationController
 	end
 
 	def edit
-		@password = Password.find(params[:id])
-
+		begin
+			@password = Password.find(params[:id])
+			unless @password.user_id == current_user.id
+				flash[:alert] = "Die angegebene ID gehört nicht zu diesem Account"
+				redirect_to passwordmanager_index_url
+			end
+		rescue Exception => e
+			flash[:alert] = "Die angegebene ID konnte nicht gefunden werden"
+			redirect_to passwordmanager_index_url
+		end
 	end
 
 	def home

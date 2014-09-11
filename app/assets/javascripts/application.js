@@ -32,11 +32,14 @@ function setTime(id,timeLeft,input){
 }
 
 function setPasswdEncrypt(){
+
 	$('.divPasswdUeber').click(function(){
 		var id = $(this).attr("passwordID");
 		var query = "#divPasswdUeber"+id;
 		var passwd = $(query+"passwd").html();
-		var decrypted = sjcl.decrypt(userPhrase, passwd)
+		var decrypted = sjcl.decrypt(userPhrase, passwd);
+
+		alert("");
 
 
 		$(query).html(decrypted);
