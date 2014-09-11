@@ -1,3 +1,16 @@
+
+function escapeHtml(unsafe) {
+	var res = "";
+	for(var i = 0;i < unsafe.length;i++){
+		if(unsafe[i] == "/"){
+			res += "%2F";
+		}else{
+			res += unsafe[i];
+		}
+	}
+    return res;
+ }
+
 function plainPassword(){
 	if($("#cbPhransePlainText").is(":checked")){
 		$("#inpPhrase").attr("type","text");
@@ -20,12 +33,12 @@ function sendPhrase(){
 	var phrase = $('#aEmail').html();
 
 	var encrypted = sjcl.encrypt(phrase,passwd);
-
+	
 	location.href = "./"+escapeHtml(encrypted);
 
 }
 function sendPhraseInput(e){
-	if(e.keyCode == 13){
-		sendPhrase();
-	}
+	 if (e.keyCode == 13) {
+        sendPhrase();
+    }
 }

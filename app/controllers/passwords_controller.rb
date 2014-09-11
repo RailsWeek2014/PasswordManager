@@ -1,4 +1,8 @@
 class PasswordsController < ApplicationController
+	def edit
+		@password = Password.find(params[:id])
+	end
+
 	def create
 		phrase = params[:password].delete(:phrase)
 		@passParams = password_params

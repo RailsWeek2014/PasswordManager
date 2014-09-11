@@ -12,9 +12,8 @@
 			</div>
 		</td>
 	</tr>
-	<tr>
-		<td>
-		<%= form_for(@password) do |p| %>
+	<tr>		
+		<%= form_for(@password, url: passwdURL(@password),method: passwdURLMethod(@password)) do |p| %>
 			<%= p.hidden_field "phrase",  value: params[:phrase] %>
 			<table border="1" cellspacing="0" cellpadding="10">
 				<tr>
@@ -37,7 +36,11 @@
 					<td colspan="2" style="text-align:center;"><button id="btVerschluesseln" type="button" onclick="btClickVerschl()">Verschlüsseln</button></td>
 				</tr>
 				<tr>
-					<td colspan="2" style="text-align: center;"><%= p.submit "Senden", :disabled => 'disabled',:id => 'btEdNeSenden' %></td>
+					<% if @password.new_record? %>
+						<td colspan="2" style="text-align: center;"><%= p.submit "Senden", :disabled => 'disabled',:id => 'btEdNeSenden' %></td>
+					<% else %>
+						<td colspan="2" style="text-align: center;"><%= p.submit "Senden",:id => 'btEdNeSenden' %></td>
+					<% end %>
 				</tr>
 				<% end %>
 			</table>

@@ -22,7 +22,8 @@ class PasswordmanagerController < ApplicationController
 	end
 
 	def showLogin
-		@password = Password.where "login = ?",params[:login]
+		@password = Password.where "login = ? AND user_id = ?",params[:login],current_user.id
+		@password = @password.order("LOWER(url) ASC")
 		@route = "showLogin"
 	end
 
@@ -32,6 +33,7 @@ class PasswordmanagerController < ApplicationController
 
 	def edit
 		@password = Password.find(params[:id])
+
 	end
 
 	def home

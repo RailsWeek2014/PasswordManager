@@ -7,23 +7,23 @@ en:
       send_instructions: "You will receive an email with instructions for how to confirm your email address in a few minutes."
       send_paranoid_instructions: "If your email address exists in our database, you will receive an email with instructions for how to confirm your email address in a few minutes."
     failure:
-      already_authenticated: "You are already signed in."
-      inactive: "Your account is not activated yet."
-      invalid: "Invalid email or password."
-      locked: "Your account is locked."
-      last_attempt: "You have one more attempt before your account is locked."
-      not_found_in_database: "Invalid email address or password."
-      timeout: "Your session expired. Please sign in again to continue."
+      already_authenticated: "Sie sind bereits angemeldet."
+      inactive: "Ihr Account ist nocht nicht aktiviert."
+      invalid: "Falsche Email Adresse oder Passwort."
+      locked: "Ihr Account ist gesperrt."
+      last_attempt: "Sie haben einen weiteren Versuch, bevor ihr."
+      not_found_in_database: "Falsche Email Adresse oder Passwort."
+      timeout: "Ihre Sitzung ist abgelaufen. Bitte melden Sie sich neu an."
       #unauthenticated: "You need to sign in or sign up before continuing."
       unauthenticated: ""
-      unconfirmed: "You have to confirm your email address before continuing."
+      unconfirmed: "Bitte bestätigen Sie Ihre Email Adresse."
     mailer:
       confirmation_instructions:
-        subject: "Confirmation instructions"
+        subject: "Bestätigungs Anleitung"
       reset_password_instructions:
-        subject: "Reset password instructions"
+        subject: "Passwort zurücksetzen"
       unlock_instructions:
-        subject: "Unlock instructions"
+        subject: "Entsperren"
     omniauth_callbacks:
       failure: "Could not authenticate you from %{kind} because \"%{reason}\"."
       success: "Successfully authenticated from %{kind} account."
@@ -42,16 +42,16 @@ en:
       update_needs_confirmation: "You updated your account successfully, but we need to verify your new email address. Please check your email and follow the confirm link to confirm your new email address."
       updated: "Your account has been updated successfully."
     sessions:
-      signed_in: "Signed in successfully."
-      signed_out: "Signed out successfully."
-      already_signed_out: "Signed out successfully."
+      signed_in: "Login erfolgreich."
+      signed_out: "Logout erfolgreich."
+      already_signed_out: "Logout erfolgreich."
     unlocks:
       send_instructions: "You will receive an email with instructions for how to unlock your account in a few minutes."
       send_paranoid_instructions: "If your account exists, you will receive an email with instructions for how to unlock it in a few minutes."
       unlocked: "Your account has been unlocked successfully. Please sign in to continue."
   errors:
     messages:
-      already_confirmed: "was already confirmed, please try signing in"
+      already_confirmed: "wurde bereits bestätigt. Bitte versuchen Sie sich einzuloggen."
       confirmation_period_expired: "needs to be confirmed within %{period}, please request a new one"
       expired: "has expired, please request a new one"
       not_found: "not found"

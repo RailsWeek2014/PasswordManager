@@ -51,30 +51,32 @@
 							<tr>
 								<td><div>URL:</div></td>
 								<td>
-									<table border="0" cellspacing="0" cellpadding="0" style="margin-top:-10px;">
-										<tr>
-											<td>
-												<div class="clickAble" id="" style="margin-left:20px;" onclick="reorderList('urlASC');">
-													<% if session[:order_by] == "3" %>
-															<%= image_tag("cornerUpActive.png",:width => "15px") %>
-													<% else %>
-															<%= image_tag("cornerUp.png",:width => "15px") %>
-													<% end %>
-												</div>
-											</td>
-										</tr>
-										<tr>
-											<td>
-												<div class="clickAble" style="margin-left:20px;" onclick="reorderList('urlDESC');">
-													<% if session[:order_by] == "4" %>
-														<%= image_tag("cornerDownActive.png",:width => "15px") %>
-													<% else %>
-														<%= image_tag("cornerDown.png",:width => "15px") %>
-													<% end %>
-												</div>
-											</td>
-										</tr>
-									</table>
+									<% if isLogin %>
+										<table border="0" cellspacing="0" cellpadding="0" style="margin-top:-10px;">
+											<tr>
+												<td>
+													<div class="clickAble" id="" style="margin-left:20px;" onclick="reorderList('urlASC');">
+														<% if session[:order_by] == "3" %>
+																<%= image_tag("cornerUpActive.png",:width => "15px") %>
+														<% else %>
+																<%= image_tag("cornerUp.png",:width => "15px") %>
+														<% end %>
+													</div>
+												</td>
+											</tr>
+											<tr>
+												<td>
+													<div class="clickAble" style="margin-left:20px;" onclick="reorderList('urlDESC');">
+														<% if session[:order_by] == "4" %>
+															<%= image_tag("cornerDownActive.png",:width => "15px") %>
+														<% else %>
+															<%= image_tag("cornerDown.png",:width => "15px") %>
+														<% end %>
+													</div>
+												</td>
+											</tr>
+										</table>
+									<% end %>
 								</td>
 							</tr>
 						</table>

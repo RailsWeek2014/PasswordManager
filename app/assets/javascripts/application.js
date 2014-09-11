@@ -16,18 +16,6 @@
 
 var userPhrase;
 
-function escapeHtml(unsafe) {
-	var res = "";
-	for(var i = 0;i < unsafe.length;i++){
-		if(unsafe[i] == "/"){
-			res += "%2F";
-		}else{
-			res += unsafe[i];
-		}
-	}
-    return res;
- }
-
 function setTime(id,timeLeft,input){
 	if(timeLeft > 0){
 		$(id).html(timeLeft);
@@ -38,6 +26,7 @@ function setTime(id,timeLeft,input){
 		},1000);
 	}else{
 		$(id).html(input);
+		$(".divPasswdUeber").unbind("click");
 		setPasswdEncrypt();
 	}
 }
@@ -47,7 +36,7 @@ function setPasswdEncrypt(){
 		var id = $(this).attr("passwordID");
 		var query = "#divPasswdUeber"+id;
 		var passwd = $(query+"passwd").html();
-		var decrypted = sjcl.decrypt(userPhrase, passwd);
+		var decrypted = sjcl.decrypt(userPhrase, passwd)
 
 
 		$(query).html(decrypted);
@@ -70,9 +59,20 @@ function calUserPhrase(){
 	}
 }
 
+function displayErrorTimer(){
+
+}
+
+function displayErrorinit(){
+	$('.error').load(function(){
+		
+	})
+}
+
 function init(){
 	calUserPhrase();
 	setPasswdEncrypt();
+	displayErrorinit();
 }
 
 window.onload = init;
