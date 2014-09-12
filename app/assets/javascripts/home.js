@@ -32,6 +32,7 @@ function sendPhrase(){
 	passwd = passwd + "|" + $('#divUserLastSignIn').html();
 	var phrase = $('#aEmail').html();
 
+	//Stanford Javascript Crypto Librar
 	var encrypted = sjcl.encrypt(phrase,passwd);
 	
 	location.href = "./"+escapeHtml(encrypted);

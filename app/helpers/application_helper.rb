@@ -14,4 +14,16 @@ module ApplicationHelper
 			return :patch
 		end
 	end
+
+	def htmlSpecialCharsHp sentence
+		sentence = sentence.gsub '@', '&#64;'
+		sentence = sentence.gsub '/','&#47;'
+		return sentence.gsub '.','&#46;'
+	end
+
+	def htmlSpecialCharsReverseHp sentence
+		sentence = sentence.gsub '&#64;', '@'
+		sentence = sentence.gsub '&#47;','/'
+		return sentence.gsub '&#46;','.'
+	end
 end

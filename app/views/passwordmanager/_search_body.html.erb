@@ -1,12 +1,13 @@
 <% i = 0 %>
 <% passwords.each do |passwd| %>
 	<% i += 1 %>
+	<% @login = passwd.login.gsub '@','&#64;' %>
 	<div class="divIPassword">
 		<table border="0" cellspacing="10" cellpadding="0" width="100%">
 			<tr>
 				<td width="5%"><%= i %>.</td>
 				<% if isLogin %>
-					<td width="20%"><%= link_to passwd.login,passwordmanager_showLogin_path(params[:phrase],passwd.login) %></td>
+					<td width="20%"><%= link_to passwd.login,passwordmanager_showLogin_path(params[:phrase],htmlSpecialCharsHp(passwd.login)) %></td>
 				<% end %>
 				<td width="20%"><%= passwd.url %></td>
 				<td width="20%">

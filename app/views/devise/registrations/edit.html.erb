@@ -2,17 +2,17 @@
   <tr>
     <td>
       <div class="deviseUeber">
-        Edit <%= resource_name.to_s.humanize %>
+        <%= resource_name.to_s.humanize %> bearbeiten
       </div>
     </td>
-    <td><%= link_to "Back", :back %></td>
+    <td><%= link_to "Zurück", :back %></td>
   </tr>
 
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
 
   <tr>
-    <td><%= f.label :email %></td>
+    <td><%= f.label :email,"Email:" %></td>
     <td><%= f.email_field :email, autofocus: true %></td>
   </tr>
 
@@ -23,17 +23,17 @@
   <% end %>
 
   <tr>
-    <td><%= f.label :password %> <i>(leave blank if you don't want to change it)</i></td>
+    <td><%= f.label :password,"Passwort:" %> <i>(frei lassen, wenn es nciht geändert werden soll)</i></td>
     <td><%= f.password_field :password, autocomplete: "off" %></td>
   </tr>
 
   <tr>
-    <td><%= f.label :password_confirmation %></td>
+    <td><%= f.label :password_confirmation,"Passwort wiederholen:" %></td>
     <td><%= f.password_field :password_confirmation, autocomplete: "off" %></td>
   </tr>
 
   <tr>
-    <td><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i></td>
+    <td><%= f.label :current_password,"Altes Passwort" %></td>
     <td><%= f.password_field :current_password, autocomplete: "off" %></td>
   </tr>
 
@@ -44,11 +44,11 @@
 
   <tr><td>&#160;</td></tr>
   <tr>
-    <td><h3>Cancel my account</h3></td>
+    <td><h3>Account löschen</h3></td>
   </tr>
 
   <tr>
-    <td>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></td>
+    <td><%= button_to "löschen", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></td>
   </tr>
 
   <tr><td>&#160;</td></tr>

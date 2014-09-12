@@ -22,7 +22,7 @@ class PasswordmanagerController < ApplicationController
 	end
 
 	def showLogin
-		@password = Password.where "login = ? AND user_id = ?",params[:login],current_user.id
+		@password = Password.where "login = ? AND user_id = ?",htmlSpecialCharsReverseHp(params[:login]),current_user.id
 		@password = @password.order("LOWER(url) ASC")
 		@route = "showLogin"
 	end
@@ -80,17 +80,23 @@ class PasswordmanagerController < ApplicationController
 
 			case(session[:order_by])
 				when "1"
-					@password = @password.order('LOWER(login) ASC')
+					@password = @password.order('LOWER(login) ASC, LOWER(url) ASC')
 				when "2"
-					@password = @password.order('LOWER(login) DESC')
+					@password = @password.order('LOWER(login) DESC, LOWER(url) DESC')
 				when "3"
-					@password = @password.order('LOWER(url) ASC')
+					@password = @password.order('LOWER(url) ASC, LOWER(login) ASC')
 				when "4"
-					@password = @password.order('LOWER(url) DESC')
+					@password = @password.order('LOWER(url) DESC, LOWER(login) DESC')
 				else
-					@password = @password.order('LOWER(login) ASC')
+					@password = @password.order('LOWER(login) ASC, LOWER(passwordmanager_index_url) ASC')
 			end
 
 			return @password
+		end
+
+		def htmlSpecialCharsReverseHp sentence
+			sentence = sentence.gsub '&#64;', '@'
+			sentence = sentence.gsub '&#47;','/'
+			return sentence.gsub '&#46;','.'
 		end
 end

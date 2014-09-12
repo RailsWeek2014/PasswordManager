@@ -6,7 +6,7 @@
 	<tr>
 		<td>
 			<div id="divSLUeber">
-				<%= "Addressen mit '#{params[:login]}' als login:" %>
+				<%= "Addressen mit '#{htmlSpecialCharsReverseHp(params[:login])}' als login:" %>
 			</div>
 		</td>
 	</tr>

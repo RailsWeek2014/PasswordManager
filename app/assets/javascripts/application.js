@@ -37,6 +37,7 @@ function setPasswdEncrypt(){
 		var id = $(this).attr("passwordID");
 		var query = "#divPasswdUeber"+id;
 		var passwd = $(query+"passwd").html();
+		//Stanford Javascript Crypto Library
 		var decrypted = sjcl.decrypt(userPhrase, passwd);
 		
 		$(query).html(decrypted);
@@ -51,6 +52,7 @@ function calUserPhrase(){
 	var passwd = $('#divUserPhrase').html();
 	var phrase = $('#aEmail').html();
 
+	//Stanford Javascript Crypto Library
 	var decrypted = userPhrase = sjcl.decrypt(phrase,passwd);
 	var zwischen = decrypted.split("|");
 	var loggedIn = $('#divUserLastSignIn').html();

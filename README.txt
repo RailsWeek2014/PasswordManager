@@ -6,3 +6,9 @@
 		-> Sortierbar
 	- Übersicht von Einer Email-addresse
 		-> wo man überall damit angemeldet ist
+
+verwendete gem's:
+	-> DEVISE
+
+verwendete Javascript Bibliotheken:
+	-> Stanford Javascript Crypto Library

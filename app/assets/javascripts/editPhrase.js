@@ -57,6 +57,7 @@ function editPhrase(passwords){
 		$('#divEdPhrLager').html(passwords[i+1]);
 
 		var passwd = $('#divEdPhrLager').html();
+		//Stanford Javascript Crypto Library
 		decrypted = sjcl.decrypt(userPhrase, passwd);
 		encrypted = sjcl.encrypt(newPasswd,decrypted);
 

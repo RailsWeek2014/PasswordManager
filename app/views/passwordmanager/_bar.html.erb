@@ -15,7 +15,7 @@
 			<td><%= link_to "Abmelden", destroy_user_session_url, method: :delete %></td>
 			<td><div id="divUserLastSignIn"><%= current_user.current_sign_in_at %></div></td>
 			<td><div id="divUserPhrase"><%= params[:phrase] %></div></td>
-			<td width="20%">&#160;</td>
+			<td width="10%">&#160;</td>
 			<td>
 				<%- if params[:phrase] %>
 					<div id="divNavigation">
